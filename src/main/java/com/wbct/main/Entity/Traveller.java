@@ -1,31 +1,41 @@
 package com.wbct.main.Entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table
 public class Traveller {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
+	
 	private Long id;
-	@Column
+	
+	@NotBlank(message = "Name can't be empty")
+	@Size(min = 5,message = "Name should be minimum 5 character")
 	private String name;
-	@Column
+	
+	@NotBlank(message = "Email cannot be empty")
 	private String email;
-	@Column
+	
+	@NotBlank(message = "password cannot be empty")
 	private String password;
-	@Column
+	
+	@NotBlank(message = "Contry cannot be empty")
 	private String country;
-	@Column
+	
+	@NotBlank(message = "State cannot be empty")
 	private String state;
-	@Column
+	
+	@NotBlank(message = "City cannot be empty")
 	private String city;
+
+
 	public Long getId() {
 		return id;
 	}

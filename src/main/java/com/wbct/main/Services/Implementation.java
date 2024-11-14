@@ -11,6 +11,7 @@ public class Implementation implements TravelServices {
 
 	@Autowired
 	private TravellerRepository travellerRepository;
+
 	@Override
 	public boolean RegisterUser(Traveller traveller) {
 		boolean status = false;
@@ -23,6 +24,7 @@ public class Implementation implements TravelServices {
 		}
 		return status;
 	}
+	
 	@Override
 	public Traveller LoginTraveller(String email, String city) {
 		Traveller validTraveller = travellerRepository.findByEmail(email);

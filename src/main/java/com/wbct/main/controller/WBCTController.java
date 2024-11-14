@@ -3,6 +3,7 @@ package com.wbct.main.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,10 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.wbct.main.Entity.Traveller;
 import com.wbct.main.Services.TravelServices;
 
+import jakarta.validation.Valid;
+
 //import ch.qos.logback.core.model.Model;
 
 @Controller
 public class WBCTController {
+
 	@Autowired
 	private TravelServices travelServices;
 	
@@ -22,13 +26,20 @@ public class WBCTController {
 		model.addAttribute("traveller", new Traveller());
 		return "Application";
 	}
+
 	@GetMapping("/SigninPage")
 	public String openSigninPage(Model model) {
 		model.addAttribute("traveller", new Traveller());
 		return "signin";
-		}
+	}
+
 	@PostMapping("/RegForm")
-	public String SubmitForm(@ModelAttribute("traveller") Traveller traveller, Model model) {
+	public String SubmitForm(@Valid @ModelAttribute("traveller") Traveller traveller,BindingResult result,  Model model) {
+
+		if (result.hasErrors()) {
+			return "Application";
+		}
+
 		boolean msg = travelServices.RegisterUser(traveller);
 		if(msg) {
 			model.addAttribute("successMSG", "User Registered Successfully");
@@ -38,6 +49,7 @@ public class WBCTController {
 		}
 		return "Application";
 	}
+
 	@PostMapping("/SigninForm")
 	public String LoginTraveller(@ModelAttribute("traveller") Traveller traveller, Model model) {
 		Traveller validTraveller = travelServices.LoginTraveller( traveller.getEmail(), traveller.getCity());
@@ -51,5 +63,6 @@ public class WBCTController {
 			return "signin";
 		}
 	}
+	
 }
 

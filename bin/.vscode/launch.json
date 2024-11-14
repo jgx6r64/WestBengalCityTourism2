@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-WestBengalCityTourismApplication<WestBengalCityTourism>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.wbct.main.WestBengalCityTourismApplication",
+            "projectName": "WestBengalCityTourism",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
