@@ -2,23 +2,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>WestBengal City Tourism</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+.g_id_signin>div {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	margin-top: 20px;
+}
+</style>
 </head>
 <body>
-	<div class="container" style="max-width: fit-content;">
+	<div class="container">
 		<div class="element">
-		<div id="header">
-			<marquee><h2>Welcome to Our Website, Wish You A Very Happy Journey</h2></marquee><br>
-		</div>
-			<a href="SigninPage">Already Have An Account? Sign In to your account</a><br><br>
-			<a href="ApplicationPage"><button>Getting Started</button></a>
+			<div id="header">
+				<marquee>
+					<h2>Welcome to Our Website, Wish You A Very Happy Journey</h2>
+				</marquee>
+				<br>
+			</div>
+			<a href="SigninPage">Already Have An Account? Sign In to your
+				account</a><br> <br> <br> <a href="ApplicationPage"><button>Sign Up Now!</button></a>
 		</div>
 
+		<div id="g_id_onload"
+			data-client_id="395791288206-mbr43mbnui8k7vp2o9aeuc13ibgp061n.apps.googleusercontent.com"
+			data-context="signin" data-ux_mode="popup"
+			data-login_uri="http://localhost:8080/html/html-callback"
+			data-itp_support="true"></div>
+		
 	</div>
+		<div class="g_id_signin" data-type="standard" data-shape="pill"
+			data-theme="filled_blue" data-text="signin_with" data-size="large"
+			data-logo_alignment="left"></div>
 
 </body>
 </html>

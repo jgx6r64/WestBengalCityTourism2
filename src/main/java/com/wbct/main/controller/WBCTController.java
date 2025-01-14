@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wbct.main.Entity.Traveller;
 import com.wbct.main.Services.TravelServices;
@@ -16,6 +17,7 @@ import com.wbct.main.Services.TravelServices;
 public class WBCTController {
 	@Autowired
 	private TravelServices travelServices;
+	private Traveller traveller;
 	
 	@GetMapping("/ApplicationPage")
 	public String openPage(Model model) {
@@ -51,5 +53,17 @@ public class WBCTController {
 			return "signin";
 		}
 	}
+	@RequestMapping("/home")
+	public String home() {
+		return "home";
+	}
+	
+	
+// <-------- For Google Sign in ------->
+	
+	//@GetMapping
+	//public Map<String, Object> currentUser(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
+		//return oAuth2AuthenticationToken.getPrincipal().getAttributes();
+	//}
 }
 

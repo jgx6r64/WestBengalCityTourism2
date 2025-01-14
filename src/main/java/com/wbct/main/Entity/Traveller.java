@@ -1,11 +1,15 @@
 package com.wbct.main.Entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table
@@ -14,9 +18,13 @@ public class Traveller {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Long id;
+	@SuppressWarnings("deprecation")
 	@Column
+	@NotBlank(message = "User Name Can Not Be Empty !!")
+	@Size(min = 3, max = 20, message = "User name must be between 3 to 20")
 	private String name;
 	@Column
+	@NotNull(message = "Email can not be null")
 	private String email;
 	@Column
 	private String password;
@@ -26,6 +34,13 @@ public class Traveller {
 	private String state;
 	@Column
 	private String city;
+	private String userId;
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	public Long getId() {
 		return id;
 	}
